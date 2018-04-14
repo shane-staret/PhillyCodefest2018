@@ -4,25 +4,27 @@ public class SecurityGuard extends User{
 	
 	
 	//constructor
-	public SecurityGuard(String IdNumber) {
-		super(IdNumber);
+	public SecurityGuard(String IdNumber, String firstName, String lastName) {
+		super(IdNumber, firstName, lastName);
 		
 	}	
 	
 	//method to change level
 	public Alert resolveAlert(Alert alert) {
-		alert.setLevel(0);
+		alert.resolveAlert();
 		return alert;
 	}
 	
-	//
+	//increases level of alert
 	public Alert escalateAlert(Alert alert) {
-		alert.setLevel(3);
+		alert.increaseLevel();
 		return alert;
 	}
 	
-	public StudentAlert(int level, LocalDateTime date) {
-		return new StudentAlert(level, date);
+	//decreases of level of alert
+	public Alert descalateAlert(Alert alert){
+		alert.decreaseLevel();
+		return alert;
 	}
 			
 }
