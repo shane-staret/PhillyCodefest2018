@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
 
-public class Alert {
+public class StudentAlert {
 	//level of danger
 	private int level;
 	private String message = "";
@@ -8,8 +8,9 @@ public class Alert {
 	private LocalDateTime date;
 	
 	//constructor
-	public Alert(int level, LocalDateTime date) {
+	public StudentAlert(int level, String message, LocalDateTime date) {
 		this.level = level;
+		this.message = message;
 		this.date = date;
 	}
 	//print method
