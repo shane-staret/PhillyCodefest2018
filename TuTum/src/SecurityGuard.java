@@ -14,7 +14,6 @@ public class SecurityGuard {
 	}
 	
 	//access method
-	//return @IdNumber
 	public String getIdNumber() {
 		return IdNumber;
 	}
@@ -22,9 +21,21 @@ public class SecurityGuard {
 	//alert method
 	public Alert alert(int level) {
 		LocalDateTime time = java.time.LocalDateTime.now();
-		return new Alert(level,time);
+
+		if (level == 3) {
+			return new EmergencyAlert(time);
+		}
+		else if(level == 2) {
+			return new SuspiciousAlert(time);
+		}
+		else if(level ==1) {
+			return new PotentialAlert(time);
+		}
+		else {
+			return null;
+		}
 		
+	}	
 	
 			
-	}
 }
