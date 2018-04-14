@@ -1,28 +1,22 @@
 
-public class Teacher {
-	private String id;
+public class Teacher extends User {
+
 	private String room;
-	public Teacher(String id, String room) {
-		id = id;
-		room = room;
+	
+	//constructor
+	public Teacher(String IdNumber, String room) {
+		super(IdNumber);
+		this.room = room;
 	}
 	//Teacher inputs studentID of student who is not here
 	public String studentNotHere(String studentID) {
 		return studentID;
 	}
-	
-	
-	
-	//Getters and setters
-	public String getID() {
-		return id;
-	}
+	//gets teachers room number
 	public String getRoom() {
 		return room;
 	}
-	public void setID(String id) {
-		this.id = id;
-	}
+	//sets teachers room number
 	public void setRoom(String room) {
 		this.room = room;
 	}
