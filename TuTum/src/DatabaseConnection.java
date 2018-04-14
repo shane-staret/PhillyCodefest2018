@@ -17,9 +17,9 @@ public class DatabaseConnection {
 	  	establishConnection();
 	}
 	  
-	  // Method to establish a Connection to the Database
-	  public void establishConnection() {
-	  	System.out.println("Establishing a Connection to the Database...");
+	// Method to establish a Connection to the Database
+	public void establishConnection() {
+		System.out.println("Establishing a Connection to the Database...");
 	  	try {
 	  		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 	  		conn = DriverManager.getConnection(connectionUrl);
@@ -27,5 +27,17 @@ public class DatabaseConnection {
 	  	} catch (Exception e) {
 	  		e.printStackTrace();
 	  	}
-	  }
+	}
+	
+	public void testConnection(){
+		String request = "delete test_table";
+		try {
+    		System.out.println("Inserting Assignment to database...");
+			stmt = conn.createStatement();
+			stmt.executeQuery(request);
+			System.out.println("Insert Assignment Complete");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
 }
