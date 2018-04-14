@@ -5,9 +5,10 @@ import java.util.*;
 public class DatabaseConnection {
 	
 	// Fields
+	
+	// FEILDS TO CONNECT TO THE DATABASE
 	private String connectionUrl = "jdbc:sqlserver://localhost:1401;database=TUTUM_TEST;"
 			+ "user=SA;password=Ph11lycode2018";
-	
 	private Connection conn = null;
 	private Statement stmt = null;
 	private ResultSet rs = null;
@@ -29,6 +30,10 @@ public class DatabaseConnection {
 	  	}
 	}
 	
+	
+	// API LOGIC
+	
+	// TEST METHOD
 	public void testConnection(){
 		String request = "delete test_table";
 		try {
@@ -40,4 +45,33 @@ public class DatabaseConnection {
 			e.printStackTrace();
 		}	
 	}
+	
+	
+	// GET USER QUERYS
+	
+	// GET TEACHERS
+	public ArrayList<Teacher> getTeachersFromDB(){
+		String q = "SELECT * FROM TEACHER_USER";
+		ArrayList<Teacher> queryResults = new ArrayList<Teacher>();
+		try {
+    		System.out.println("Getting Teachers from database...");
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(q);
+			while(rs.next()) {
+    			String id = rs.getString("TEACHER_ID");
+    			String fn = rs.getString("FIRST_NAME");
+    			String ln = rs.getString("LAST_NAME");
+    			String room = rs.getString("ROOM_OFFICE");
+    			queryResults.add(new Teacher(id, fn, ln, room));
+    		}
+			System.out.println("Teacher data aquired");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		
+		return queryResults;
+	}
+	// GET GUARDS
+	
+	// GET STUDENTS
 }

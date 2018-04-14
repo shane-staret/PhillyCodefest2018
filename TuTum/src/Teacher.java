@@ -2,6 +2,9 @@
 public class Teacher extends User {
 
 	private String room;
+	private String id;
+	private String firstName;
+	private String lastName;
 	
 	//constructor
 	public Teacher(String IdNumber, String firstName, String lastName, String room) {
