@@ -14,12 +14,12 @@ studentLocationStatus Method
 public class Student {
 	private String studentID;
 	private String studentName;
-	private String studentCurrentLocation;
-	private String studentPreviousLocation;
-	private String absenceAlert;
-	private boolean studentIsAbsent;
-	private ArrayList<String> allStudentLocations = new ArrayList<>();
-	private boolean studentStatusFlag;
+	private String studentCurrentLocation; //last known location of student
+	private String studentPreviousLocation; //previous location of student
+	private String absenceAlert; //eventually will be an Alert object
+	private boolean studentIsAbsent; //true: student is absent from building; false; student is not absent from building
+	private ArrayList<String> allStudentLocations = new ArrayList<>(); //holds all locations student has been logged at for the day
+	private boolean studentStatusFlag; //true: student is seen as harmful; false: student is not seen as harmful
 	
 	public Student(String studentID, String studentName, boolean studentStatusFlag) {
 		this.setStudentID(studentID);
@@ -47,6 +47,7 @@ public class Student {
 		return studentCurrentLocation;
 	}
 
+	//sets current location of student to new value based on most recent attendance by teacher (Teacher class needs to access this)
 	public void setStudentCurrentLocation(String studentCurrentLocation) {
 		if(!allStudentLocations.isEmpty())
 			studentPreviousLocation = studentCurrentLocation;
@@ -57,7 +58,8 @@ public class Student {
 	public boolean getStudentStatusFlag() {
 		return studentStatusFlag;
 	}
-
+	
+	//sets current status flag of student to new value due to an incident (SecurityGuard class must access this)
 	public void setStudentStatusFlag(boolean studentStatusFlag) {
 		this.studentStatusFlag = studentStatusFlag;
 	}
@@ -75,10 +77,16 @@ public class Student {
 		absenceAlert = "Absent, student was never in building";
 	}
 
+	//true: student was never in building; false: student in building at some point
 	public boolean isStudentAbsent() {
 		studentLocationStatus();
 		return studentIsAbsent;
 	}
 	
-
+	//will eventually return an Alert object
+	public String getAbsenceAlert() {
+		return absenceAlert;
+	}
+	
+	
 }
