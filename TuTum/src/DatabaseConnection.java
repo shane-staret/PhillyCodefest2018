@@ -5,8 +5,8 @@ import java.util.*;
 public class DatabaseConnection {
 	
 	// Fields
-	private String connectionUrl = "jdbc:sqlserver://localhost\test:1023;database=tutumdb;"
-			+ "user=user;password=pass";
+	private String connectionUrl = "jdbc:sqlserver://localhost:1401;database=TUTUM_TEST;"
+			+ "user=SA;password=Ph11lycode2018";
 	
 	private Connection conn = null;
 	private Statement stmt = null;
