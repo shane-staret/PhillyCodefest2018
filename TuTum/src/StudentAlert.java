@@ -25,7 +25,6 @@ public class StudentAlert {
 	public int getLevel() {
 		return level;
 	}
-<<<<<<< master:TuTum/src/StudentAlert.java
 	//method to change level
 	public void resolveAlert() {
 		this.level = 0;
@@ -34,11 +33,6 @@ public class StudentAlert {
 	public void increaseLevel() {
 		if(this.level < 3)
 			this.level++;
-=======
-	
-	public void setLevel(int level) {
-		this.level = level;
->>>>>>> Updated to alert teacher and users:TuTum/src/Alert.java
 	}
 	//method to write message
 	public void writeMessage(String message) {
