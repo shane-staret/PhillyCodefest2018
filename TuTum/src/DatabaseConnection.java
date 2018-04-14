@@ -5,8 +5,8 @@ import java.util.*;
 public class DatabaseConnection {
 	
 	// Fields
-	private String connectionUrl = "jdbc:sqlserver://localhost\test:1023;database=tutumdb;"
-			+ "user=user;password=pass";
+	private String connectionUrl = "jdbc:sqlserver://localhost:1401;database=TUTUM_TEST;"
+			+ "user=SA;password=Ph11lycode2018";
 	
 	private Connection conn = null;
 	private Statement stmt = null;
@@ -17,9 +17,9 @@ public class DatabaseConnection {
 	  	establishConnection();
 	}
 	  
-	  // Method to establish a Connection to the Database
-	  public void establishConnection() {
-	  	System.out.println("Establishing a Connection to the Database...");
+	// Method to establish a Connection to the Database
+	public void establishConnection() {
+		System.out.println("Establishing a Connection to the Database...");
 	  	try {
 	  		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 	  		conn = DriverManager.getConnection(connectionUrl);
@@ -27,5 +27,17 @@ public class DatabaseConnection {
 	  	} catch (Exception e) {
 	  		e.printStackTrace();
 	  	}
-	  }
+	}
+	
+	public void testConnection(){
+		String request = "delete test_table";
+		try {
+    		System.out.println("Inserting Assignment to database...");
+			stmt = conn.createStatement();
+			stmt.executeQuery(request);
+			System.out.println("Insert Assignment Complete");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
 }
