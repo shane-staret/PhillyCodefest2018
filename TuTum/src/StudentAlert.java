@@ -31,7 +31,8 @@ public class StudentAlert {
 	}
 	//
 	public void increaseLevel() {
-		this.level = 3;
+		if(this.level < 3)
+			this.level++;
 	}
 	//method to write message
 	public void writeMessage(String message) {
