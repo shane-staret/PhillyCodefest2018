@@ -14,15 +14,15 @@ public class User {
 	
 	//getter method
 	public String userIDNumber() {
-		return IdNumber;
+		return userID;
 	}
 	//mutator method
 		public void setIdNumber(String IdNumber) {
-			this.IdNumber = IdNumber;
+			this.userID = IdNumber;
 		}
 		
 	//creates Alert method
-		public StudentAlert createAlert(int level) {
+		public Alert createAlert(int level) {
 			LocalDateTime time = java.time.LocalDateTime.now();
 
 			if (level == 3) {
