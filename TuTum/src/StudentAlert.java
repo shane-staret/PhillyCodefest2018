@@ -11,6 +11,3 @@ public class StudentAlert extends Alert {
 	
 	
 }
-
-
-	

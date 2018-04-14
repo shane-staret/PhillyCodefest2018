@@ -4,8 +4,8 @@ public class Teacher extends User {
 	private String room;
 	
 	//constructor
-	public Teacher(String IdNumber, String room) {
-		super(IdNumber);
+	public Teacher(String IdNumber, String firstName, String lastName, String room) {
+		super(IdNumber, firstName, lastName);
 		this.room = room;
 	}
 	//Teacher inputs studentID of student who is not here
@@ -20,4 +20,5 @@ public class Teacher extends User {
 	public void setRoom(String room) {
 		this.room = room;
 	}
+	
 }
