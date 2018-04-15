@@ -26,11 +26,16 @@ public class SystemMain {
 		db = new DatabaseConnection();
 		
 		teacherDirectory = db.getTeachersFromDB(); 
-		
+		studentDirectory = db.getStudentsFromDB();
 		
 		for(Teacher t: teacherDirectory){
 			System.out.println(t.getRoom());
 		}
 		
+		
+		
+		for(Student s: studentDirectory){
+			System.out.println(s.getStudentID());
+		}
 	}
 }

@@ -2,22 +2,33 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Student {
+	
+	// Fields from database
 	private String studentID;
 	private String studentFirstName;
 	private String studentLastName;
 	private String studentCurrentLocation; //last known location of student
 	private String studentPreviousLocation; //previous location of student
+	
+	
 	private String absenceAlertMessage; //holds message of alert
 	private int absenceAlertLevel; //holds level of alert
 	private boolean studentIsAbsent = true; //true: student is absent from building; false; student is not absent from building
-	private boolean studentStatusFlag; //true: student is seen as harmful; false: student is not seen as harmful
+	private boolean studentStatusFlag = false; //true: student is seen as harmful; false: student is not seen as harmful
 	private LocalDateTime date;
 	
-	public Student(String studentID, String studentFirstName, String studentLastName, boolean studentStatusFlag) {
+	public Student(String studentID, String studentFirstName, String studentLastName) {
 		this.studentID = studentID;
 		this.studentFirstName = studentFirstName;
 		this.studentLastName = studentLastName;
-		this.studentStatusFlag = studentStatusFlag;
+	}
+	
+	public Student(String studentID, String studentFirstName, String studentLastName, String currRoom, String prevRoom) {
+		this.studentID = studentID;
+		this.studentFirstName = studentFirstName;
+		this.studentLastName = studentLastName;
+		this.studentCurrentLocation = currRoom;
+		this.studentPreviousLocation = prevRoom;
 	}
 
 	public String getStudentID() {

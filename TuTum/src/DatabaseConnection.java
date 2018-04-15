@@ -74,4 +74,26 @@ public class DatabaseConnection {
 	// GET GUARDS
 	
 	// GET STUDENTS
+	public ArrayList<Student> getStudentsFromDB(){
+		String q = "SELECT * FROM STUDENT";
+		ArrayList<Student> queryResults = new ArrayList<Student>();
+		try {
+    		System.out.println("Getting Student from database...");
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(q);
+			while(rs.next()) {
+    			String id = rs.getString("STUDENT_ID");
+    			String fn = rs.getString("FIRST_NAME");
+    			String ln = rs.getString("LAST_NAME");
+    			String cr = rs.getString("CURRENT_ROOM");
+    			String pr = rs.getString("PREVIOUS_ROOM");
+    			queryResults.add(new Student(id, fn, ln, cr, pr));
+    		}
+			System.out.println("Student data aquired");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		
+		return queryResults;
+	}
 }
