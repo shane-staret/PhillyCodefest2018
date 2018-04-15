@@ -18,6 +18,10 @@ public class SystemMain {
 	
 	// Main Methods
 	public static void main(String[] args){
+<<<<<<< HEAD
+=======
+		TeacherInterface tp = new TeacherInterface();
+>>>>>>> Shane
 		//db = new DatabaseConnection(); // Establish Connection to Database
 		
 		// TEST FOR DATABASE TO RETREIVE DATA
