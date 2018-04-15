@@ -32,7 +32,7 @@ public class SystemMain {
 		
 		// Printing teachers
 		for(Teacher t: teacherDirectory){
-			System.out.println(t.getRoom());
+			System.out.println(t.userID);
 		}
 		for(Student s: studentDirectory){
 			System.out.println(s.getStudentID());
