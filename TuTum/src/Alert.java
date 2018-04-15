@@ -11,6 +11,7 @@ public class Alert {
 		this.level = level;
 		this.message = message;
 		this.date = java.time.LocalDateTime.now();
+		Statistics.printAlert(this);
 	}
 	
 	public Alert(int level) {
