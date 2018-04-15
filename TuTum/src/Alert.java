@@ -2,7 +2,7 @@ import java.time.LocalDateTime;
 
 public class Alert {
 	private int level;
-	private String message = "";
+	private String message;
 	private LocalDateTime date;
 	
 	public Alert(int level, String message, LocalDateTime date) {
@@ -28,19 +28,13 @@ public class Alert {
 	public void resolveAlert() {
 		this.level = 0;
 	}
-	//
-	public void increaseLevel() {
-		if(this.level < 3)
-			this.level++;
-	}
-	public void decreaseLevel() {
-		if(this.level > 0)
-			this.level--;
-	}
-	
 	
 	//method to write message
-	public void writeMessage(String message) {
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
 		this.message = message;
 	}
 	

@@ -7,8 +7,8 @@ public class Teacher extends User {
 	private String lastName;
 	
 	//constructor
-	public Teacher(String IdNumber, String firstName, String lastName, String room) {
-		super(IdNumber, firstName, lastName);
+	public Teacher(String IDNumber, String firstName, String lastName, String room) {
+		super(IDNumber, firstName, lastName);
 		this.room = room;
 	}
 	//Teacher inputs studentID of student who is not here
@@ -23,5 +23,11 @@ public class Teacher extends User {
 	public void setRoom(String room) {
 		this.room = room;
 	}
+	
+	public void changeStatusFlag(Student student) {
+		student.setStudentStatusFlag(!student.getStudentStatusFlag());
+	}
+	
+	
 	
 }

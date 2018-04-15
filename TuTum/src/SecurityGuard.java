@@ -1,5 +1,3 @@
-import java.time.LocalDateTime;
-
 public class SecurityGuard extends User{
 	
 	
@@ -10,21 +8,20 @@ public class SecurityGuard extends User{
 	}	
 	
 	//method to change level
-	public Alert resolveAlert(Alert alert) {
-		alert.resolveAlert();
-		return alert;
+	public Alert resolveAlert(Alert a) {
+		a.resolveAlert();
+		return a;
 	}
 	
 	//increases level of alert
-	public Alert escalateAlert(Alert alert) {
-		alert.increaseLevel();
-		return alert;
+	public SecurityAlert escalateAlert(SecurityAlert a) {
+		a.increaseLevel();
+		return a;
 	}
 	
 	//decreases of level of alert
-	public Alert descalateAlert(Alert alert){
-		alert.decreaseLevel();
-		return alert;
+	public SecurityAlert deescalateAlert(SecurityAlert a) {
+		a.decreaseLevel();
+		return a;
 	}
-			
 }
