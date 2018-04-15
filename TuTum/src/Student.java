@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Student {
@@ -9,12 +8,12 @@ public class Student {
 	private String studentLastName;
 	private String studentCurrentLocation; //last known location of student
 	private String studentPreviousLocation; //previous location of student
-	
+	private boolean studentStatusFlag; //true: student is seen as harmful; false: student is not seen as harmful
+	private boolean studentIsAbsent; //true: student is absent from building; false; student is not absent from building
+
 	
 	private String absenceAlertMessage; //holds message of alert
 	private int absenceAlertLevel; //holds level of alert
-	private boolean studentIsAbsent; //true: student is absent from building; false; student is not absent from building
-	private boolean studentStatusFlag = false; //true: student is seen as harmful; false: student is not seen as harmful
 	
 	public Student(String studentID, String studentFirstName, String studentLastName) {
 		this.studentID = studentID;
@@ -22,12 +21,16 @@ public class Student {
 		this.studentLastName = studentLastName;
 	}
 	
-	public Student(String studentID, String studentFirstName, String studentLastName, String currRoom, String prevRoom) {
+	// Constructor for inserting data from table
+	public Student(String studentID, String studentFirstName, String studentLastName, 
+			String currRoom, String prevRoom, boolean sflag, boolean abFlag) {
 		this.studentID = studentID;
 		this.studentFirstName = studentFirstName;
 		this.studentLastName = studentLastName;
 		this.studentCurrentLocation = currRoom;
 		this.studentPreviousLocation = prevRoom;
+		this.studentStatusFlag = sflag;
+		this.studentIsAbsent = abFlag;
 	}
 
 	public String getStudentID() {
@@ -77,7 +80,7 @@ public class Student {
 	
 	//checks student's most recent and previous location; if student was in previous class but not in current, alert creation method is called
 	private void studentLocationStatus() {
-		if(!studentPreviousLocation.equals("unknown") && studentCurrentLocation.equals("unknown")) {
+		if(!studentPreviousLocation.equals(null) && studentCurrentLocation.equals(null)) {
 				if(studentStatusFlag)
 					absenceAlertLevel = 2;
 				else

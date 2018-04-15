@@ -10,7 +10,7 @@ public class SystemMain {
 	private static ArrayList<SecurityGuard> guards;
 	private static ArrayList<Alert> alerts;
 	
-	
+	// Database Backend API Variable
 	private static DatabaseConnection db; 
 	
 	// Static Methods
@@ -18,12 +18,17 @@ public class SystemMain {
 	
 	// Main Methods
 	public static void main(String[] args){
-		db = new DatabaseConnection();
+		db = new DatabaseConnection(); // Establish Connection to Database
 		
-		// Aquiring Users
+		// Aquire Directory Data from DB
 		teacherDirectory = db.getTeachersFromDB(); 
 		studentDirectory = db.getStudentsFromDB();
 		guards = db.getGuardsFromDB();
+		
+		// Login Frame Initialization
+		LoginInterface login = new LoginInterface(db);
+		
+		
 		
 		// Printing teachers
 		for(Teacher t: teacherDirectory){

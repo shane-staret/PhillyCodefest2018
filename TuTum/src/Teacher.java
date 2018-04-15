@@ -1,27 +1,25 @@
 
 public class Teacher extends User {
 
-	private String room;
+	private String course;
 	private String id;
 	private String firstName;
 	private String lastName;
 	
 	//constructor
-	public Teacher(String IDNumber, String firstName, String lastName, String room) {
+	public Teacher(String IDNumber, String firstName, String lastName, String course) {
 		super(IDNumber, firstName, lastName);
-		this.room = room;
+		this.course = course;
 	}
-	//Teacher inputs studentID of student who is not here
-	public String studentNotHere(String studentID) {
-		return studentID;
+	
+	//gets teachers course number
+	public String getcourse() {
+		return course;
 	}
-	//gets teachers room number
-	public String getRoom() {
-		return room;
-	}
-	//sets teachers room number
-	public void setRoom(String room) {
-		this.room = room;
+	
+	//sets teachers course number
+	public void setCourse(String course) {
+		this.course = course;
 	}
 	
 	public void changeStatusFlag(Student student) {
@@ -30,13 +28,13 @@ public class Teacher extends User {
 	
 	public void setStudentStatus(Student student, boolean status) {
 		student.setStudentIsAbsent(status);
-		if(status)
-			student.setStudentCurrentLocation(room);
+		if(!status)
+			student.setStudentCurrentLocation(course);
 		else
-			student.setStudentCurrentLocation("unknown");
+			student.setStudentCurrentLocation(null);
 	}
 	
 	public SecurityAlert createAlert(int level, String message) {
-		return new SecurityAlert(level, message, room);
+		return new SecurityAlert(level, message, course);
 	}
 }
