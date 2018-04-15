@@ -85,7 +85,7 @@ public class LoginInterface extends JFrame {
 				new TeacherInterface(teacher_id, dbLoginAPI);
 			} else if(teacher_id == null && guard_id != null){
 				dispose();
-				new SecurityGuardInterface(guard_id);
+				new ListOfAlertsGui();
 			} else {
 				System.out.println("Login Failed");
 				txtUsername.setText("");

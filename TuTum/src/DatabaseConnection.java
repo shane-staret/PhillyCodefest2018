@@ -7,7 +7,7 @@ public class DatabaseConnection {
 	// Fields
 	
 	// FEILDS TO CONNECT TO THE DATABASE
-	private String connectionUrl = "jdbc:sqlserver://localhost:1401;database=TUTUM_TEST;"
+	private String connectionUrl = "jdbc:sqlserver://localhost:1401;database=TUTUM_LDB;"
 			+ "user=SA;password=Ph11lycode2018";
 	private Connection conn = null;
 	private Statement stmt = null;
