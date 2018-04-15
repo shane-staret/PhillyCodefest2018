@@ -47,10 +47,10 @@ public class LoginInterface extends JFrame {
 		 pnlButton.add(btnLogin);
 		 
 		 //adding panels to frame
-		 setLayout(new GridLayout(3,1));
-		 add(pnlUsername);
-		 add(pnlPassword);
-		 add(pnlButton);
+		setLayout(new GridLayout(3,1));
+		add(pnlUsername);
+		add(pnlPassword);
+		add(pnlButton);
 		 
 		 
 		 
