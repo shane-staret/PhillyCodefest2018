@@ -5,6 +5,9 @@ import java.util.*;
 public class SystemMain {
 	
 	// Global Fields
+	public static long timeStart;
+	public static long timeEnd;
+	public static long timeElapsed;
 	private static ArrayList<Student> studentDirectory;
 	private static ArrayList<Teacher> teacherDirectory;
 	private static ArrayList<SecurityGuard> guards;

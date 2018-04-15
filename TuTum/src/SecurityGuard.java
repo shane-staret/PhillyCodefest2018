@@ -10,6 +10,8 @@ public class SecurityGuard extends User{
 	//method to change level
 	public Alert resolveAlert(Alert a) {
 		a.resolveAlert();
+		a.setEndTime(System.currentTimeMillis());
+		a.getElapsedTime();
 		return a;
 	}
 	
