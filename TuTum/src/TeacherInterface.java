@@ -1,7 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
-
+import java.util.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.*;
@@ -17,9 +17,12 @@ public class TeacherInterface extends JFrame {
 	private JLabel header;
 	
 	private String id;
+	private Teacher user;
+	private DatabaseConnection db;
+	private ArrayList<Student> studentDirectory;
 	
-	 public TeacherInterface(String teacher_id) {
-		  setTitle("Teacher");  
+	 public TeacherInterface(String teacher_id, DatabaseConnection db) {
+		  
 	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	      buildContents();
 	      Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -30,6 +33,11 @@ public class TeacherInterface extends JFrame {
 	      setVisible(true);
 	      
 	      this.id = teacher_id;
+	      this.db = db;
+	      user = db.getTeacherDataById(id);
+	      studentDirectory = db.getStudentsByCourse(user.getcourse());
+	      
+	      setTitle("Teacher | " + user.userFirstName + " " + user.userLastName);  
 	 }
    
 	
@@ -43,12 +51,15 @@ public class TeacherInterface extends JFrame {
     	  GridLayout layoutPanels = new GridLayout(3,1);
     	  
           TableModel dataModel = new AbstractTableModel() {
-              public int getColumnCount() { return 5; }
-              public int getRowCount() { return 10;}
-              public Object getValueAt(int row, int col) { return new Integer(69); }
+              public int getColumnCount() { return 4; }
+              public int getRowCount() { return 4; }
+              public Object getValueAt(int row, int col) { 
+            	  return new Integer(69); 
+              }
           };
           JTable table = new JTable(dataModel);
           table.setValueAt("Hey",0,0);
+    	  
           jp1.add(table);
     	  
     	  l3 = new JLabel("Alert Level (0, 1, 2)");

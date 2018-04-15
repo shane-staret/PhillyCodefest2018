@@ -82,7 +82,7 @@ public class LoginInterface extends JFrame {
 			
 			if(teacher_id != null && guard_id == null){
 				dispose();
-				new TeacherInterface(teacher_id);
+				new TeacherInterface(teacher_id, dbLoginAPI);
 			} else if(teacher_id == null && guard_id != null){
 				dispose();
 				new SecurityGuardInterface(guard_id);

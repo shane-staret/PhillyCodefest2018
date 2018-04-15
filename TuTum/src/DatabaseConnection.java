@@ -46,6 +46,54 @@ public class DatabaseConnection {
 		}	
 	}
 	
+	// TEACHER INTERFACE \\ 
+	public Teacher getTeacherDataById(String id){
+		String request = "SELECT * FROM TEACHER_USER WHERE TEACHER_ID = '" + id + "';";
+		Teacher t = null;
+		try {
+    		System.out.println("Getting Teacher data from database...");
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(request);
+			if(rs.next()){
+				String tid = rs.getString("TEACHER_ID");
+				String fn = rs.getString("FIRST_NAME");
+				String ln = rs.getString("LAST_NAME");
+				String cid = rs.getString("COURSE_ID");
+				t = new Teacher(tid, fn, ln, cid);
+			}
+			System.out.println("Successful reception of Teacher data");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		return t;
+	}
+	
+	public ArrayList<Student> getStudentsByCourse(String cid){
+		String request = "SELECT * " +
+						"FROM STUDENT_COURSE, TEACHER_USER, STUDENT " +
+						"WHERE STUDENT_COURSE.COURSE_ID = TEACHER_USER.COURSE_ID " +
+						" AND TEACHER_USER.TEACHER_ID = '" + cid + "';";
+		ArrayList<Student> queryResults = new ArrayList<Student>();
+		try {
+    		System.out.println("Inserting Assignment to database...");
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(request);
+			while(rs.next()){
+				String id = rs.getString("STUDENT_ID");
+    			String fn = rs.getString("FIRST_NAME");
+    			String ln = rs.getString("LAST_NAME");
+    			String cr = rs.getString("CURRENT_ROOM");
+    			String pr = rs.getString("PREVIOUS_ROOM");
+    			boolean f = Boolean.getBoolean(rs.getString("STATUS_FLAG"));
+    			boolean ab = Boolean.getBoolean(rs.getString("ABSENT_FLAG"));
+    			queryResults.add(new Student(id, fn, ln, cr, pr, f, ab));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		return queryResults;
+	}
+	
 	// LOGIN LOGIC \\
 	public String loginTeacher(String uname, String pass){
 		String q = "SELECT * FROM TEACHER_USER WHERE USERNAME = '" + uname + "' AND PASSWORD = '" + pass + "';";
