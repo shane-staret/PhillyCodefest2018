@@ -28,6 +28,15 @@ public class Teacher extends User {
 		student.setStudentStatusFlag(!student.getStudentStatusFlag());
 	}
 	
+	public void setStudentStatus(Student student, boolean status) {
+		student.setStudentIsAbsent(status);
+		if(status)
+			student.setStudentCurrentLocation(room);
+		else
+			student.setStudentCurrentLocation("unknown");
+	}
 	
-	
+	public SecurityAlert createAlert(int level, String message) {
+		return new SecurityAlert(level, message, room);
+	}
 }

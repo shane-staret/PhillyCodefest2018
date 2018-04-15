@@ -24,4 +24,9 @@ public class SecurityGuard extends User{
 		a.decreaseLevel();
 		return a;
 	}
+	
+	//creates alert
+	public SecurityAlert createAlert(int level, String message) {
+		return new SecurityAlert(level, message);
+	}
 }
