@@ -15,6 +15,7 @@ public class SecurityGuardInterface extends JFrame {
 		      buildContents();
 		      pack(); // optional(gets rid of whitespace)
 		      setVisible(true); 
+		      setResizable(false);
 		   }
 		 public void buildContents() {
 			 

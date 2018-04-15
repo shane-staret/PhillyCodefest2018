@@ -36,9 +36,8 @@ public class LoginInterface extends JFrame {
 	      buildContents();
 	      pack(); // optional(gets rid of whitespace)
 	      setVisible(true); 
-	 }
-	 
-	 // Generates all JComponents on the UI
+	      setResizable(false);
+	   }
 	 public void buildContents() {
 		 //initializing instance variables
 		 lblUsername = new JLabel("Username: ");
