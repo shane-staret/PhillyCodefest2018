@@ -25,6 +25,8 @@ public class LoginInterface extends JFrame {
 	      buildContents();
 	      pack(); // optional(gets rid of whitespace)
 	      setVisible(true); 
+	      setResizable(false);
+	   }
 	      
 	      dbLoginAPI = d;
 	 }
