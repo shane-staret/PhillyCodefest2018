@@ -5,9 +5,6 @@ import java.util.*;
 public class SystemMain {
 	
 	// Global Fields
-	public static final int status0 = Level.POTENTIAL.getNumeric();
-	public static final int status1 = Level.SUSPICIOUS.getNumeric();
-	public static final int status2 = Level.EMERGENCY.getNumeric();
 	private static ArrayList<Student> studentDirectory;
 	private static ArrayList<Teacher> teacherDirectory;
 	private static ArrayList<SecurityGuard> guards;

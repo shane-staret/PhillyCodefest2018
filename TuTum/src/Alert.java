@@ -10,7 +10,7 @@ public class Alert {
 	
 	public Alert(int level, String message) {
 		setStartTime(System.currentTimeMillis());
-		if(level != SystemMain.status0 || level != SystemMain.status1 || level != SystemMain.status2) {
+		if(level != Level.POTENTIAL.getNumeric() || level != Level.SUSPICIOUS.getNumeric() || level != Level.EMERGENCY.getNumeric()) {
 			level = -1;
 			return;
 		}
