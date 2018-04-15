@@ -26,7 +26,7 @@ public class SystemMain {
 		guards = db.getGuardsFromDB();
 		
 		// Login Frame Initialization
-		LoginInterface login = new LoginInterface();
+		LoginInterface login = new LoginInterface(db);
 		
 		
 		
