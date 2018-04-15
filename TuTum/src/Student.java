@@ -104,6 +104,6 @@ public class Student {
 	//creates StudentAlert object to be added to database and dealt with
 	public StudentAlert getAbsenceAlert() {
 		studentLocationStatus();
-		return new StudentAlert(absenceAlertLevel, absenceAlertMessage);
+		return new StudentAlert(absenceAlertLevel, absenceAlertMessage, studentID);
 	}
 }
