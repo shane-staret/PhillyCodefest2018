@@ -18,7 +18,8 @@ public class SystemMain {
 	
 	// Main Methods
 	public static void main(String[] args){
-		db = new DatabaseConnection(); // Establish Connection to Database
+		TeacherInterface tp = new TeacherInterface();
+		//db = new DatabaseConnection(); // Establish Connection to Database
 		
 		// Aquire Directory Data from DB
 		teacherDirectory = db.getTeachersFromDB(); 
