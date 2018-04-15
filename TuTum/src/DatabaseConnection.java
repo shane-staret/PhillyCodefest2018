@@ -72,6 +72,26 @@ public class DatabaseConnection {
 		return queryResults;
 	}
 	// GET GUARDS
+	public ArrayList<SecurityGuard> getGuardsFromDB(){
+		String q = "SELECT * FROM SECURITY_USER";
+		ArrayList<SecurityGuard> queryResults = new ArrayList<SecurityGuard>();
+		try {
+    		System.out.println("Getting Guard from database...");
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(q);
+			while(rs.next()) {
+    			String id = rs.getString("SECURITY_ID");
+    			String fn = rs.getString("FIRST_NAME");
+    			String ln = rs.getString("LAST_NAME");
+    			queryResults.add(new SecurityGuard(id, fn, ln));
+    		}
+			System.out.println("Guard data aquired");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		
+		return queryResults;
+	}
 	
 	// GET STUDENTS
 	public ArrayList<Student> getStudentsFromDB(){

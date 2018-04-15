@@ -25,17 +25,21 @@ public class SystemMain {
 		
 		db = new DatabaseConnection();
 		
+		// Aquiring Users
 		teacherDirectory = db.getTeachersFromDB(); 
 		studentDirectory = db.getStudentsFromDB();
+		guards = db.getGuardsFromDB();
 		
+		// Printing teachers
 		for(Teacher t: teacherDirectory){
 			System.out.println(t.getRoom());
 		}
-		
-		
-		
 		for(Student s: studentDirectory){
 			System.out.println(s.getStudentID());
 		}
+		for(SecurityGuard g: guards){
+			System.out.println(g.userIDNumber());
+		}
+		
 	}
 }
