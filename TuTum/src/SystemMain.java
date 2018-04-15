@@ -18,11 +18,7 @@ public class SystemMain {
 	
 	// Main Methods
 	public static void main(String[] args){
-<<<<<<< HEAD
-=======
-		TeacherInterface tp = new TeacherInterface();
->>>>>>> Shane
-		//db = new DatabaseConnection(); // Establish Connection to Database
+		db = new DatabaseConnection(); // Establish Connection to Database
 		
 		// TEST FOR DATABASE TO RETREIVE DATA
 //		// Aquire Directory Data from DB
@@ -43,8 +39,8 @@ public class SystemMain {
 		
 		// Login Frame Initialization
 				
-		LoginInterface login = new LoginInterface(); // without database
+		//LoginInterface login = new LoginInterface(); // without database
 		
-		//LoginInterface loginDB = new LoginInterface(); // With Database
+		LoginInterface loginDB = new LoginInterface(db); // With Database
 	}
 }

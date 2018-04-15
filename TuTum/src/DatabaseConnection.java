@@ -47,6 +47,44 @@ public class DatabaseConnection {
 	}
 	
 	// LOGIN LOGIC \\
+	public String loginTeacher(String uname, String pass){
+		String q = "SELECT * FROM TEACHER_USER WHERE USERNAME = '" + uname + "' AND PASSWORD = '" + pass + "';";
+		String id = "";
+		try {
+			System.out.println("Attempting Teacher Login");
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(q);
+			if(rs.next()){
+				id = rs.getString("TEACHER_ID");
+			} else {
+				id = null;
+				System.out.println("Unable to login as a Teacher");
+			}
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return id;
+	}
+	
+	public String loginGuard(String uname, String pass){
+		String q = "SELECT * FROM SECURITY_USER WHERE USERNAME = '" + uname + "' AND PASSWORD = '" + pass + "';";
+		String id = "";
+		try {
+			System.out.println("Attempting Guard Login");
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(q);
+			if(rs.next()){
+				id = rs.getString("SECURITY_ID");
+			} else {
+				id = null;
+				System.out.println("Unable to login as a Guard");
+			}
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return id;
+	}
+	
 	
 	// GET USER QUERYS \\
 	// GET TEACHERS

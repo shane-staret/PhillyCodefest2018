@@ -15,7 +15,10 @@ public class TeacherInterface extends JFrame {
 	private JLabel l1, l2, l3, l4;
 	private JTextField text1, text2, button;
 	private JLabel header;
-	 public TeacherInterface() {
+	
+	private String id;
+	
+	 public TeacherInterface(String teacher_id) {
 		  setTitle("Teacher");  
 	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	      buildContents();
@@ -25,7 +28,9 @@ public class TeacherInterface extends JFrame {
 	      pack();
 	      setLocationRelativeTo(null);
 	      setVisible(true);
-	      }
+	      
+	      this.id = teacher_id;
+	 }
    
 	
     public void buildContents() {

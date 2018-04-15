@@ -7,8 +7,10 @@ public class SecurityGuardInterface extends JFrame {
 	private JButton btnPotential, btnSuspect, btnEmergency;
 	private JPanel potentialPanel, suspectPanel, emergencyPanel;
 	
+	private String id;
+	
 	//constructor
-		 public SecurityGuardInterface() {
+		 public SecurityGuardInterface(String guard_id) {
 			  setTitle("Security Guard Alerts");  
 		      setSize(350, 200);   
 		      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -16,6 +18,8 @@ public class SecurityGuardInterface extends JFrame {
 		      pack(); // optional(gets rid of whitespace)
 		      setVisible(true); 
 		      setResizable(false);
+		      
+		      this.id = guard_id;
 		   }
 		 public void buildContents() {
 			 
@@ -47,9 +51,6 @@ public class SecurityGuardInterface extends JFrame {
 			add(suspectPanel, BorderLayout. LINE_END);
 			add(emergencyPanel, BorderLayout.CENTER);
 		 
-		 }
-		 public static void main(String[] args) {
-			 new SecurityGuardInterface();
 		 }
 }
 

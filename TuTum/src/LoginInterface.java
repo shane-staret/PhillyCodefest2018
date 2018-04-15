@@ -26,7 +26,6 @@ public class LoginInterface extends JFrame {
 	      pack(); // optional(gets rid of whitespace)
 	      setVisible(true); 
 	      setResizable(false);
-	   }
 	      
 	      dbLoginAPI = d;
 	 }
@@ -75,7 +74,23 @@ public class LoginInterface extends JFrame {
 	 
 	 class LoginListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			String username = txtUsername.getText();
+			String password = txtPassword.getText();
 			
+			String teacher_id = dbLoginAPI.loginTeacher(username, password);
+			String guard_id = dbLoginAPI.loginGuard(username, password);
+			
+			if(teacher_id != null && guard_id == null){
+				dispose();
+				new TeacherInterface(teacher_id);
+			} else if(teacher_id == null && guard_id != null){
+				dispose();
+				new SecurityGuardInterface(guard_id);
+			} else {
+				System.out.println("Login Failed");
+				txtUsername.setText("");
+				txtPassword.setText("");
+			}
 			
 		}
 	 }
