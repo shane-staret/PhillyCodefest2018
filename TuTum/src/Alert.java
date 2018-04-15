@@ -4,17 +4,25 @@ public class Alert {
 	protected int level;
 	protected String message;
 	protected LocalDateTime date;
-	/* TODO:
-		use enum data type for level
-	*/
+	protected long startTime;
+	protected long endTime;
+	protected String timeElapsed;
+	
 	public Alert(int level, String message) {
-		this.level = level;
-		this.message = message;
-		this.date = java.time.LocalDateTime.now();
-		Statistics.printAlert(this);
+		setStartTime(System.currentTimeMillis());
+		if(level != Level.POTENTIAL.getNumeric() || level != Level.SUSPICIOUS.getNumeric() || level != Level.EMERGENCY.getNumeric()) {
+			level = -1;
+			return;
+		}
+		else {
+			this.level = level;
+			this.message = message;
+			this.date = java.time.LocalDateTime.now();
+		}
 	}
 	
 	public Alert(int level) {
+		setStartTime(System.currentTimeMillis());
 		this.level = level;
 		this.date = java.time.LocalDateTime.now();
 	}
@@ -44,4 +52,28 @@ public class Alert {
 	public String toString() {
 		return (level + "\t" + message + "\t" + date.toString());
 	}
+	
+	public long getStartTime() {
+		return startTime;
+	}
+	
+	public void setStartTime(long startTime) {
+		this.startTime = startTime;
+	}
+	
+	public long getEndTime() {
+		return startTime;
+	}
+	
+	public void setEndTime(long endTime) {
+		this.endTime = endTime;
+	}
+	
+	//gives elapsed time in minutes
+	public String getElapsedTime() {
+		timeElapsed = (float)(getEndTime() - getStartTime())/1000/60/60 + "Hrs";
+		return timeElapsed;
+	}
+	
+	
 }
