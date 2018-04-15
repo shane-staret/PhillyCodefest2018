@@ -46,9 +46,9 @@ public class DatabaseConnection {
 		}	
 	}
 	
+	// LOGIN LOGIC \\
 	
-	// GET USER QUERYS
-	
+	// GET USER QUERYS \\
 	// GET TEACHERS
 	public ArrayList<Teacher> getTeachersFromDB(){
 		String q = "SELECT * FROM TEACHER_USER";
@@ -61,7 +61,7 @@ public class DatabaseConnection {
     			String id = rs.getString("TEACHER_ID");
     			String fn = rs.getString("FIRST_NAME");
     			String ln = rs.getString("LAST_NAME");
-    			String room = rs.getString("ROOM_OFFICE");
+    			String room = rs.getString("COURSE_ID");
     			queryResults.add(new Teacher(id, fn, ln, room));
     		}
 			System.out.println("Teacher data aquired");
