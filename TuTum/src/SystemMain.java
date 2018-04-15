@@ -18,28 +18,29 @@ public class SystemMain {
 	
 	// Main Methods
 	public static void main(String[] args){
-		db = new DatabaseConnection(); // Establish Connection to Database
+		//db = new DatabaseConnection(); // Establish Connection to Database
 		
-		// Aquire Directory Data from DB
-		teacherDirectory = db.getTeachersFromDB(); 
-		studentDirectory = db.getStudentsFromDB();
-		guards = db.getGuardsFromDB();
+		// TEST FOR DATABASE TO RETREIVE DATA
+//		// Aquire Directory Data from DB
+//		teacherDirectory = db.getTeachersFromDB(); 
+//		studentDirectory = db.getStudentsFromDB();
+//		guards = db.getGuardsFromDB();
+//		// Printing teachers
+//		for(Teacher t: teacherDirectory){
+//			System.out.println(t.userID);
+//		}
+//		for(Student s: studentDirectory){
+//			System.out.println(s.getStudentID());
+//		}
+//		for(SecurityGuard g: guards){
+//			System.out.println(g.userIDNumber());
+//		}
+//		
 		
 		// Login Frame Initialization
-		LoginInterface login = new LoginInterface(db);
+				
+		LoginInterface login = new LoginInterface(); // without database
 		
-		
-		
-		// Printing teachers
-		for(Teacher t: teacherDirectory){
-			System.out.println(t.userID);
-		}
-		for(Student s: studentDirectory){
-			System.out.println(s.getStudentID());
-		}
-		for(SecurityGuard g: guards){
-			System.out.println(g.userIDNumber());
-		}
-		
+		//LoginInterface loginDB = new LoginInterface(); // With Database
 	}
 }

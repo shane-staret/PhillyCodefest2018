@@ -29,6 +29,15 @@ public class LoginInterface extends JFrame {
 	      dbLoginAPI = d;
 	 }
 	 
+	 public LoginInterface() {
+		  setTitle("Login");  
+	      setSize(350, 200);   
+	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+	      buildContents();
+	      pack(); // optional(gets rid of whitespace)
+	      setVisible(true); 
+	 }
+	 
 	 // Generates all JComponents on the UI
 	 public void buildContents() {
 		 //initializing instance variables
