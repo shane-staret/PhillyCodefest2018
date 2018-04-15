@@ -10,9 +10,15 @@ public class Alert {
 	
 	public Alert(int level, String message) {
 		setStartTime(System.currentTimeMillis());
-		this.level = level;
-		this.message = message;
-		this.date = java.time.LocalDateTime.now();
+		if(level != SystemMain.status0 || level != SystemMain.status1 || level != SystemMain.status2) {
+			level = -1;
+			return;
+		}
+		else {
+			this.level = level;
+			this.message = message;
+			this.date = java.time.LocalDateTime.now();
+		}
 	}
 	
 	public Alert(int level) {

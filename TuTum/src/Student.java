@@ -80,7 +80,7 @@ public class Student {
 	
 	//checks student's most recent and previous location; if student was in previous class but not in current, alert creation method is called
 	private void studentLocationStatus() {
-		if(!studentPreviousLocation.equals("unknown") && studentCurrentLocation.equals("unknown")) {
+		if(!studentPreviousLocation.equals(null) && studentCurrentLocation.equals(null)) {
 				if(studentStatusFlag)
 					absenceAlertLevel = 2;
 				else
