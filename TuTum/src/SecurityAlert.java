@@ -1,15 +1,19 @@
-import java.time.LocalDateTime;
-
 public class SecurityAlert extends Alert {
 	private Sector sector;
-	private String message;
-	private int level;
+	private String room;
 	
-	public SecurityAlert(int level, String message, LocalDateTime date, Sector sector) {
-		super(level, message, date);
-		this.level = level;
-		this.message = message;
+	public SecurityAlert(int level, String message, Sector sector) {
+		super(level, message);
 		this.sector = sector;
+	}
+	
+	public SecurityAlert(int level, String message, String room) {
+		super(level, message);
+		this.setRoom(room);
+	}
+	
+	public SecurityAlert(int level, String message) {
+		super(level, message);
 	}
 	
 	public Sector getSector() {
@@ -17,11 +21,19 @@ public class SecurityAlert extends Alert {
 	}
 	
 	public void increaseLevel() {
-		if(level < 2)
-			level++;
+		if(super.level < 2)
+			super.level++;
 	}
 	public void decreaseLevel() {
-		if(this.level > -1)
-			this.level--;
+		if(super.level > -1)
+			super.level--;
+	}
+
+	public String getRoom() {
+		return room;
+	}
+
+	public void setRoom(String room) {
+		this.room = room;
 	}
 }

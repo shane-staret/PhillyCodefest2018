@@ -13,9 +13,8 @@ public class Student {
 	
 	private String absenceAlertMessage; //holds message of alert
 	private int absenceAlertLevel; //holds level of alert
-	private boolean studentIsAbsent = true; //true: student is absent from building; false; student is not absent from building
+	private boolean studentIsAbsent; //true: student is absent from building; false; student is not absent from building
 	private boolean studentStatusFlag = false; //true: student is seen as harmful; false: student is not seen as harmful
-	private LocalDateTime date;
 	
 	public Student(String studentID, String studentFirstName, String studentLastName) {
 		this.studentID = studentID;
@@ -79,28 +78,29 @@ public class Student {
 	//checks student's most recent and previous location; if student was in previous class but not in current, alert creation method is called
 	private void studentLocationStatus() {
 		if(!studentPreviousLocation.equals("unknown") && studentCurrentLocation.equals("unknown")) {
-				studentIsAbsent = false;
 				if(studentStatusFlag)
 					absenceAlertLevel = 2;
 				else
 					absenceAlertLevel = 1;
 				absenceAlertMessage = "Present, but student is not in current class. Last known location: " + studentPreviousLocation;
-				date = java.time.LocalDateTime.now();
 				getAbsenceAlert();
 
 			}
-		else if(!studentPreviousLocation.equals("unknown") && !studentCurrentLocation.equals("unknown"))
-			studentIsAbsent = false;
 	}
 
 	//true: student was never in building; false: student in building at some point
-	public boolean isStudentAbsent() {
+	
+	public void setStudentIsAbsent(boolean studentAbsence) {
+		studentIsAbsent = studentAbsence;
+	}
+	
+	public boolean studentIsAbsent() {
 		return studentIsAbsent;
 	}
 	
 	//creates StudentAlert object to be added to database and dealt with
 	public StudentAlert getAbsenceAlert() {
 		studentLocationStatus();
-		return new StudentAlert(absenceAlertLevel, absenceAlertMessage, date);
+		return new StudentAlert(absenceAlertLevel, absenceAlertMessage);
 	}
 }

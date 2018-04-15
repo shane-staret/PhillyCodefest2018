@@ -1,19 +1,19 @@
 import java.time.LocalDateTime;
 
 public class Alert {
-	private int level;
-	private String message;
-	private LocalDateTime date;
+	protected int level;
+	protected String message;
+	protected LocalDateTime date;
 	
-	public Alert(int level, String message, LocalDateTime date) {
+	public Alert(int level, String message) {
 		this.level = level;
 		this.message = message;
 		this.date = date;
 	}
 	
-	public Alert(int level, LocalDateTime date) {
+	public Alert(int level) {
 		this.level = level;
-		this.date = date;
+		this.date = java.time.LocalDateTime.now();
 	}
 	
 	//getter for date

@@ -20,7 +20,7 @@ public class Sector {
 	}
 	
 	private SecurityAlert createSecurityAlert() {
-		return new SecurityAlert(1, "Trigger at: " + location, java.time.LocalDateTime.now(), this);
+		return new SecurityAlert(1, "Trigger at: " + location, this);
 	}
 
 }
