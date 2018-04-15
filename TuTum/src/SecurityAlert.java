@@ -2,6 +2,11 @@ public class SecurityAlert extends Alert {
 	private Sector sector;
 	private String room;
 	
+	/*
+	 * TODO:
+	 * Change level logic as changed in Alert.java
+	 */
+	
 	public SecurityAlert(int level, String message, Sector sector) {
 		super(level, message);
 		this.sector = sector;

@@ -4,11 +4,13 @@ public class Alert {
 	protected int level;
 	protected String message;
 	protected LocalDateTime date;
-	
+	/* TODO:
+		use enum data type for level
+	*/
 	public Alert(int level, String message) {
 		this.level = level;
 		this.message = message;
-		this.date = date;
+		this.date = java.time.LocalDateTime.now();
 	}
 	
 	public Alert(int level) {
@@ -26,7 +28,7 @@ public class Alert {
 	}
 	//method to change level
 	public void resolveAlert() {
-		this.level = 0;
+		this.level = -1;
 	}
 	
 	//method to write message

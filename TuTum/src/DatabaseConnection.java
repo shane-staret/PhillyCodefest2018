@@ -68,7 +68,6 @@ public class DatabaseConnection {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
-		
 		return queryResults;
 	}
 	// GET GUARDS
@@ -89,7 +88,6 @@ public class DatabaseConnection {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
-		
 		return queryResults;
 	}
 	
@@ -107,13 +105,14 @@ public class DatabaseConnection {
     			String ln = rs.getString("LAST_NAME");
     			String cr = rs.getString("CURRENT_ROOM");
     			String pr = rs.getString("PREVIOUS_ROOM");
-    			queryResults.add(new Student(id, fn, ln, cr, pr));
+    			boolean f = Boolean.getBoolean(rs.getString("STATUS_FLAG"));
+    			boolean ab = Boolean.getBoolean(rs.getString("ABSENT_FLAG"));
+    			queryResults.add(new Student(id, fn, ln, cr, pr, f, ab));
     		}
 			System.out.println("Student data aquired");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
-		
 		return queryResults;
 	}
 }

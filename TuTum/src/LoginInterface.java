@@ -2,6 +2,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/* TODO:
+ 	Add action listener
+	link login functionality to the database
+	route successful teacher logins to teacher interface
+	route successful guard logins to guard interface
+*/
 public class LoginInterface extends JFrame {
 	//instance variable section -- GUI components
 	 private JLabel lblUsername, lblPassword;

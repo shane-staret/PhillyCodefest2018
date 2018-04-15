@@ -11,14 +11,12 @@ public class Teacher extends User {
 		super(IDNumber, firstName, lastName);
 		this.room = room;
 	}
-	//Teacher inputs studentID of student who is not here
-	public String studentNotHere(String studentID) {
-		return studentID;
-	}
+	
 	//gets teachers room number
 	public String getRoom() {
 		return room;
 	}
+	
 	//sets teachers room number
 	public void setRoom(String room) {
 		this.room = room;
@@ -30,10 +28,10 @@ public class Teacher extends User {
 	
 	public void setStudentStatus(Student student, boolean status) {
 		student.setStudentIsAbsent(status);
-		if(status)
+		if(!status)
 			student.setStudentCurrentLocation(room);
 		else
-			student.setStudentCurrentLocation("unknown");
+			student.setStudentCurrentLocation(null);
 	}
 	
 	public SecurityAlert createAlert(int level, String message) {

@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 
 public class Sector {
 	private final String location;
