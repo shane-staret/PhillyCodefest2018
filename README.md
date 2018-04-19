@@ -1,5 +1,7 @@
 # PhillyCodefest2018
 Philly Codefest Project
+________________________________________________________________________________________________________________________________
+
 A school security system that prevents internal and external threats called "TuTum - Secure the Future". This would  be an application that administrators, security guards, and teachers could use to protect students from other students and external sources.
 
 To prevent external threats, devices can be put around the school campus entry points to detect movement at unusual times, prompting an alert to be sent to all security guards. Their is a tiered threat level system, so if a guard goes to investigate an alert (whose threat level is defaulted to 0) and finds that it is just an animal, then they can put the alert to the lowest threat level (-1) which resolves the alert. But, if it turns out its a person with a gun, then they can bring it to the highest threat level (2), indicating an emergency which immediately alerts all other security guards, administrators, and teachers. This also immediately alerts the police force as well.
