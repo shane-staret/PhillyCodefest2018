@@ -1,6 +1,6 @@
 # PhillyCodefest2018
 ### TuTum: Secure the Future
-#*Created by Mouaz Alhindi, Shane Staret, Leander Jeyasingh, and Carlos Chavez*
+# *Created by [Mouaz Alhindi](https://github.com/MouazAlhindi), [Shane Staret](https://github.com/SStaret43), [Leander Jeyasingh](https://github.com/Leajey), and [Carlos Chavez](https://github.com/almightmustang1998)*
 A school security system that prevents internal and external threats called "TuTum - Secure the Future". This would  be an application that administrators, security guards, and teachers could use to protect students from other students and external sources.
 ________________________________________________________________________________________________________________________________
 
