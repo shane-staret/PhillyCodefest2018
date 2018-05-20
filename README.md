@@ -1,7 +1,7 @@
 # PhillyCodefest2018
 ### TuTum: Secure the Future
 ###### *Created by [Mouaz Alhindi](https://github.com/MouazAlhindi), [Shane Staret](https://github.com/SStaret43), [Leander Jeyasingh](https://github.com/Leajey), and [Carlos Chavez](https://github.com/almightmustang1998)* as part of the 2018 Philly Codefest hosted at Drexel.
-A school security system that prevents internal and external threats called "TuTum - Secure the Future". This would  be an application that administrators, security guards, and teachers could use to protect students from other students and external sources.
+A school security system that prevents internal and external threats called *TuTum - Secure the Future*. This would  be an application that administrators, security guards, and teachers could use to protect students from other students and external sources.
 ________________________________________________________________________________________________________________________________
 
 **The primary users of this application are teachers, administrators, and security guards**. It is important to note that students will not have access to this application by any means, as there is great potential that it would be abused.
